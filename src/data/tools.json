@@ -1,0 +1,17 @@
+[
+	{
+		"id": "astro",
+		"title": "Astro",
+		"url": "https://astro.build"
+	},
+	{
+		"id": "sanity",
+		"title": "Sanity",
+		"url": "https://www.sanity.io"
+	},
+	{
+		"id": "wordpress",
+		"title": "WordPress",
+		"url": "https://wordpress.org"
+	}
+]

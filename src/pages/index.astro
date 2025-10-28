@@ -1,0 +1,26 @@
+---
+import { Debug } from "astro:components";
+import { getCollection } from "astro:content";
+import Tool from "../components/Tool.astro";
+import Welcome from "../components/Welcome.astro";
+import Layout from "../layouts/Layout.astro";
+
+const portfolio = await getCollection("portfolio");
+const tools = await getCollection("tools");
+const cases = await getCollection("cases");
+const blog = await getCollection("blog");
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+    <Welcome />
+    {
+        portfolio.map((entry) => (
+            <a href={`/portfolio/${entry.id}`}>{entry.data.title}</a>
+        ))
+    }
+    {tools.map((tool) => <Tool tool={tool.data} />)}
+    <Debug data={{ portfolio, tools, cases, blog }} />
+</Layout>

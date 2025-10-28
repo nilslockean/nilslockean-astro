@@ -1,0 +1,24 @@
+---
+import { getCollection, getEntries, getEntry, render } from "astro:content";
+import Tool from "../../components/Tool.astro";
+
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+	const entries = await getCollection("portfolio");
+
+	return entries.map((entry) => ({
+		params: { slug: entry.id },
+		props: { entry },
+	}));
+}
+
+// 2. For your template, you can get the entry directly from the prop
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const tools = await getEntries(entry.data.stack);
+---
+
+<h1>{entry.data.title}</h1>
+<h2>Tools</h2>
+{tools.map((tool) => <Tool tool={tool.data} />)}
+<Content />
