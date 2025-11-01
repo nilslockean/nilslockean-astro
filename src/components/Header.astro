@@ -1,0 +1,8 @@
+---
+import Bounded from "./Bounded.astro";
+import Navbar from "./Navbar.astro";
+---
+
+<Bounded as="header" class="absolute w-full" yPadding="sm">
+    <Navbar links={[{ label: "Work", url: "/portfolio" }]} />
+</Bounded>

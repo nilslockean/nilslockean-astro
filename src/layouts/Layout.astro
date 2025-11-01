@@ -1,22 +1,42 @@
+---
+// Fonts TODO: Remove unused
+import "@fontsource/cooper-hewitt/400.css";
+import "@fontsource/cooper-hewitt/600.css";
+import "@fontsource/libre-caslon-condensed/500.css";
+import "@fontsource/stint-ultra-condensed";
+import "@fontsource-variable/bricolage-grotesque"; // Supports weights 200-800
+
+import "../styles/global.css";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+
+        <!-- XML Sitemap -->
+        <link rel="sitemap" href="/sitemap-index.xml" />
+        <title>Nils Lockean - Web Developer</title>
+    </head>
+    <body class="font-sans text-base leading-normal bg-primary text-primary">
+        <Header />
+        <main class="">
+            <slot />
+        </main>
+        <Footer />
+    </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
 </style>

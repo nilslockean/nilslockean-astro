@@ -1,0 +1,115 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+    links: Array<{
+        label: string;
+        url: string;
+    }>;
+}
+
+// Props
+
+const { links } = Astro.props;
+
+// State (managed via a little inline script)
+---
+
+<div class="flex items-center justify-between">
+    <a href="/" class="flex items-center uppercase tracking-widest font-bold">
+        Nils Lockean
+    </a>
+
+    <!-- Mobile menu toggle -->
+    <button
+        class="p-2 rounded focus:outline-none focus:ring"
+        id="menu-toggle"
+        aria-controls="primary-nav"
+        aria-expanded="false"
+    >
+        <span class="sr-only">Open navigation</span>
+        <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+
+    <!-- Navigation -->
+    <nav
+        id="primary-nav"
+        aria-label="Primary"
+        class="bg-yellow-400 text-black fixed inset-0 flex-col p-6 z-50 hidden"
+    >
+        <!-- Close button (mobile only) -->
+        <div class="flex justify-end items-center mb-8">
+            <button
+                id="menu-close"
+                class="p-2 rounded focus:outline-none focus:ring"
+            >
+                <span class="sr-only">Stäng huvudmenyn</span>
+                <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <ul
+            class="nav-links flex items-center flex-col flex-wrap gap-6 md:gap-10 text-2xl"
+        >
+            {
+                links.map((item, i) => (
+                    <li>
+                        <a href={item.url} class="hover:underline">
+                            {item.label}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </nav>
+</div>
+
+<!-- Client-side script for toggling menu -->
+<script>
+    const toggle = document.getElementById("menu-toggle");
+    const close = document.getElementById("menu-close");
+    const nav = document.getElementById("primary-nav");
+
+    toggle?.addEventListener("click", () => {
+        nav?.classList.toggle("hidden");
+        toggle.setAttribute(
+            "aria-expanded",
+            nav?.classList.contains("hidden") ? "false" : "true",
+        );
+    });
+
+    close?.addEventListener("click", () => {
+        nav?.classList.add("hidden");
+        toggle?.setAttribute("aria-expanded", "false");
+    });
+
+    // Close menu on link click (useful on mobile)
+    nav?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            nav.classList.add("hidden");
+            toggle?.setAttribute("aria-expanded", "false");
+        });
+    });
+</script>

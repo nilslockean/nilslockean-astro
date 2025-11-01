@@ -4,12 +4,12 @@ import Tool from "../../components/Tool.astro";
 
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
-	const entries = await getCollection("portfolio");
+    const entries = await getCollection("portfolio");
 
-	return entries.map((entry) => ({
-		params: { slug: entry.id },
-		props: { entry },
-	}));
+    return entries.map((entry) => ({
+        params: { slug: entry.id },
+        props: { entry },
+    }));
 }
 
 // 2. For your template, you can get the entry directly from the prop

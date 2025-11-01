@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+   	/* Fonts */
+	--font-cooper-hewitt: 'Cooper Hewitt', sans-serif;
+	--font-libre-caslon-condensed: 'Libre Caslon Condensed', serif;
+	--font-stint: 'Stint Ultra Condensed', serif;
+	--font-sans: var(--font-cooper-hewitt);
+	--font-serif: var(--font-stint);
+	--font-heading: 'Bricolage Grotesque Variable', sans-serif;
+
+	/* Text sizes */
+	--text-sm: 1rem;
+	--text-base: 1.25rem;
+	--text-lg: 1.563rem;
+	--text-xl: 1.953rem;
+	--text-2xl: 2.441rem;
+	--text-3xl: 3.052rem;
+	--text-4xl: 3.815rem;
+	--text-5xl: 4.768rem;
+	--text-6xl: 5.96rem;
+	--text-7xl: 7.45rem;
+	--text-8xl: 9.32rem;
+	--text-9xl: 11.65rem;
+
+	/* Colors */
+	--color-yellow-400: #ffe100;
+	--bg-primary: var(--color-stone-800);
+	--bg-secondary: var(--color-yellow-400);
+	--text-primary: var(--color-stone-200);
+	--text-secondary: var(--color-stone-900);
+}
+
+@layer base {
+    /* Headings */
+	h1,
+	.h1 {
+		@apply font-heading font-bold text-4xl lg:text-5xl xl:text-6xl leading-tight;
+	}
+
+	h2,
+	.h2 {
+		@apply text-2xl opacity-85 mt-16 mb-12 leading-relaxed -mr-8;
+	}
+	h3,
+	.h3 {
+		@apply text-xl  mb-8;
+	}
+	h4,
+	.h4 {
+		@apply text-lg;
+	}
+	h5,
+	.h5 {
+		@apply text-base;
+	}
+}
