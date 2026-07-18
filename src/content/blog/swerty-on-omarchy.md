@@ -1,6 +1,6 @@
 ---
 title: Swerty on Omarchy - The Right Way
-description: I’ve been building websites for companies for many years now, and I’ve grown tired of a pattern I keep seeing among web agencies.
+description: I can't believe it took me over 15 years as a software developer before I realised how superior the US keyboard layout is to the one we default to in Sweden.
 pubDate: 2025-07-21
 ---
 
