@@ -1,10 +1,10 @@
 ---
-title: Swerty on Omarchy: The Right Way
+title: Swerty on Omarchy - The Right Way
 description: I’ve been building websites for companies for many years now, and I’ve grown tired of a pattern I keep seeing among web agencies.
 pubDate: 2025-07-21
 ---
 
-# Swerty on Omarchy: The Right Way
+# Swerty on Omarchy - The Right Way
 
 I can't believe it took me over 15 years as a software developer before I realised how superior the US keyboard layout is to the one we default to in Sweden. The placement of `{}`, `[]`, `<>`, and `;:` in the Swedish layout is a constant source of frustration when you write code all day. Swerty — a hybrid that keeps the Swedish letters `åäö` in their usual spots while moving the brackets, semicolon, and other symbols to US positions — is the perfect middle ground. But installing it on Arch with Hyprland? That turned into a rabbit hole.
 
