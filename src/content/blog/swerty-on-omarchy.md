@@ -103,7 +103,7 @@ input {
 
 - `,swerty` — default variant for US, swerty for SE
 - `lv3:ralt_switch` — right Alt becomes AltGr (accesses 3rd/4th symbol levels)
-- `grp:ctrl_space_toggle` — switch layouts with Ctrl+Space
+- `grp:ctrl_space_toggle` — switch layouts with Ctrl+Space (totally optional - this is my preference coming from macOS but you can just as well keep it as-is)
 
 ### Step 3: Waybar layout indicator
 
@@ -139,6 +139,5 @@ Files in `~/.config/xkb/` are not managed by Omarchy, so they survive updates. Y
 ## Why the official instructions fall short
 
 The old approach edits `evdev.xml` and `evdev.lst` for discoverability in desktop settings UIs, but these aren't needed by libxkbcommon on Wayland. And the original Swerty definition omits the `key.type` declaration, which silently breaks AltGr in multi-layout setups because the compiler infers a 2-level type from the first group (US) and never reaches levels 3 and 4
----
 
 _This guide was collaboratively created with [DeepSeek](https://deepseek.com) (via [opencode](https://opencode.ai)), an AI-powered CLI tool for software engineering tasks. I originally tried following the standard Swerty instructions but ran into the classic Arch problem: editing `/usr/share/X11/xkb/rules/evdev.xml` directly gets overwritten on every `xkeyboard-config` update. Omarchy's keyboard setup didn't have a way to add custom XKB variants either. With help from DeepSeek, we worked out the modern libxkbcommon approach using `~/.config/xkb/` — no system files touched, survives updates, and plays nicely with Hyprland on Wayland._
